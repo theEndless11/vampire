@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ],
+  "env": {
+    "TRANSFORMERS_CACHE": "/tmp/huggingface_cache",
+    "HF_HOME": "/tmp/huggingface_cache"
+  },
+  "functions": {
+    "main.py": {
+      "maxDuration": 60
+    }
+  }
+}
